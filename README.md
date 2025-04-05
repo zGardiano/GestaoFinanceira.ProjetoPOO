@@ -28,7 +28,11 @@ O sistema foi desenvolvido em **três partes**, respeitando as etapas sugeridas 
 ## 🧍 Observação Importante
 
 > Embora o projeto tenha sido proposto para ser realizado em grupo, tive que desenvolver completamente sozinho devido a circunstâncias específicas deste semestre, em que acabei ficando em uma turma separada dos meus colegas.  
+
+
 > Para me auxiliar nesse processo, utilizei o ChatGPT como uma ferramenta de apoio para acelerar o desenvolvimento e organizar o código, sempre respeitando o conteúdo aprendido em aula e aplicando meus próprios conhecimentos.
+
+
 > Peço gentilmente que isso seja levado em consideração no momento da avaliação, pois me dediquei bastante para cumprir todas as etapas com o máximo de capricho, mesmo sem o apoio de um grupo.
 
 ---
