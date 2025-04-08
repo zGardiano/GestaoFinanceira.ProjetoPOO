@@ -1,55 +1,56 @@
 import javax.swing.*;
-import java.awt.*;
-// import java.awt.event.*;
 import java.util.Hashtable;
 
 public class CadastroLogin {
     private static Hashtable<String, String> usuarios = new Hashtable<>();
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Cadastro/Login");
-        frame.setSize(300, 200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new GridLayout(4, 2));
+    public static String executarLoginOuCadastro() {
+        while (true) {
+            String[] opcoes = {"Login", "Cadastrar", "Sair"};
+            int escolha = JOptionPane.showOptionDialog(null, "Bem-vindo ao Sistema de Gestão Financeira",
+                    "Tela Inicial", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                    null, opcoes, opcoes[0]);
 
-        JTextField campoUsuario = new JTextField();
-        JPasswordField campoSenha = new JPasswordField();
-
-        JButton botaoCadastrar = new JButton("Cadastrar");
-        JButton botaoEntrar = new JButton("Entrar");
-
-        frame.add(new JLabel("Usuário:"));
-        frame.add(campoUsuario);
-        frame.add(new JLabel("Senha:"));
-        frame.add(campoSenha);
-        frame.add(botaoCadastrar);
-        frame.add(botaoEntrar);
-
-        botaoCadastrar.addActionListener(e -> {
-            String usuario = campoUsuario.getText();
-            String senha = new String(campoSenha.getPassword());
-            if (usuario.isEmpty() || senha.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "Preencha todos os campos.");
-            } else if (usuarios.containsKey(usuario)) {
-                JOptionPane.showMessageDialog(frame, "Usuário já existe.");
+            if (escolha == 0) {
+                String usuario = realizarLogin();
+                if (usuario != null) return usuario;
+            } else if (escolha == 1) {
+                realizarCadastro();
             } else {
-                usuarios.put(usuario, senha);
-                JOptionPane.showMessageDialog(frame, "Usuário cadastrado com sucesso!");
+                return null; // Usuário escolheu sair
             }
-        });
+        }
+    }
 
-        botaoEntrar.addActionListener(e -> {
-            String usuario = campoUsuario.getText();
-            String senha = new String(campoSenha.getPassword());
-            if (usuarios.containsKey(usuario) && usuarios.get(usuario).equals(senha)) {
-                JOptionPane.showMessageDialog(frame, "Login bem-sucedido!");
-                frame.dispose();
-                TelaPrincipal.abrirTela(usuario);
-            } else {
-                JOptionPane.showMessageDialog(frame, "Usuário ou senha inválidos.");
-            }
-        });
+    private static void realizarCadastro() {
+        String nome = JOptionPane.showInputDialog("Digite o nome de usuário:");
+        if (nome == null) return;
 
-        frame.setVisible(true);
+        if (usuarios.containsKey(nome)) {
+            JOptionPane.showMessageDialog(null, "Usuário já existe!");
+            return;
+        }
+
+        String senha = JOptionPane.showInputDialog("Digite a senha:");
+        if (senha == null) return;
+
+        usuarios.put(nome, senha);
+        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
+    }
+
+    private static String realizarLogin() {
+        String nome = JOptionPane.showInputDialog("Digite o nome de usuário:");
+        if (nome == null) return null;
+
+        String senha = JOptionPane.showInputDialog("Digite a senha:");
+        if (senha == null) return null;
+
+        if (usuarios.containsKey(nome) && usuarios.get(nome).equals(senha)) {
+            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+            return nome;
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos.");
+            return null;
+        }
     }
 }
