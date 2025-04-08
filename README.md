@@ -46,3 +46,9 @@ O sistema foi desenvolvido em **três partes**, de modo com que fique mais organ
 - Java 17
 - Swing (GUI)
 - Estrutura de dados: Hashtable e ArrayList
+
+---
+
+## 📷 Apresentação em Vídeo no YouTube
+
+> https://youtu.be/zjUPRlUd8iE
