@@ -6,19 +6,23 @@ Este projeto foi desenvolvido como parte da disciplina **Laboratório de Program
 
 ## ✅ Estrutura do Projeto
 
-O sistema foi desenvolvido em **três partes**, respeitando as etapas sugeridas no enunciado da atividade:
+O sistema foi desenvolvido em **três partes**, de modo com que fique mais organizado nas seguintes categorias:
 
-### 1. Cadastro e Login de Usuários (`CadastroLogin.java`)
+### 1. `Main.java` – Ponto de Entrada
+- Responsável por inicializar o sistema e carregar a tela de login.
+- Centraliza o fluxo do sistema, chamando os outros módulos conforme necessário.
+
+### 2. Cadastro e Login de Usuários (`CadastroLogin.java`)
 - Permite criar usuários com nome e senha.
 - Valida login de usuários cadastrados.
 - Armazena os dados em memória com uma estrutura `Hashtable`.
 
-### 2. Transações Financeiras (`Transacao.java`)
+### 3. Transações Financeiras (`Transacao.java`)
 - Adiciona transações de entrada e saída (receitas e despesas).
 - Cada transação contém: descrição, valor, tipo (entrada/saída) e data.
 - As transações ficam vinculadas ao usuário logado.
 
-### 3. Histórico e Resumo Financeiro (`TelaPrincipal.java`)
+### 4. Histórico e Resumo Financeiro (`TelaPrincipal.java`)
 - Mostra a lista de transações realizadas.
 - Calcula o saldo total com base nas transações.
 - Interface gráfica intuitiva usando componentes básicos do Swing.
