@@ -17,7 +17,7 @@ public class CadastroLogin {
             } else if (escolha == 1) {
                 realizarCadastro();
             } else {
-                return null; // Usuário escolheu sair
+                return null;
             }
         }
     }
